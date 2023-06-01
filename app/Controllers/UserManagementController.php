@@ -75,7 +75,7 @@ class UserManagementController extends Controller {
                     'roleId'        => $data['role_id']
                 ];
                 $session->set($ses_data);
-                return redirect()->to('/dashboard');
+                return redirect()->to('student/subjects');
             }else{
                 $session->setFlashdata('msg', 'Wrong Password');
                 return redirect()->to('/login');

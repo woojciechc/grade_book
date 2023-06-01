@@ -40,6 +40,11 @@ $routes->post('postLogin', 'UserManagementController::auth');
 $routes->get('logout', 'UserManagementController::logout');
 $routes->get('dashboard', 'UserManagementController::dashboard');
 
+
+$routes->get('student/subjects', 'StudentController::subjects');
+
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
