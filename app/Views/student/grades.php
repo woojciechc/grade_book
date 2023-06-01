@@ -18,8 +18,6 @@
     </div>
 </div>
 
-</html>
-
 <script>
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()

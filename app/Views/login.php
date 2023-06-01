@@ -19,15 +19,16 @@
                     <div class="alert alert-danger"><?= session()->getFlashdata('msg') ?></div>
                 <?php endif;?>
                 <form action="/postLogin/" method="post">
-                    <div class="mb-3">
+                    <div class="mb-1">
                         <label for="InputForEmail" class="form-label">Adres email</label>
                         <input type="email" name="email" class="form-control" id="InputForEmail" value="<?= set_value('email') ?>">
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-1">
                         <label for="InputForPassword" class="form-label">Hasło</label>
                         <input type="password" name="password" class="form-control" id="InputForPassword">
                     </div>
                     <button type="submit" class="btn btn-primary">Zaloguj się</button>
+                    <a class="m-3" href="/register">Zarejestruj się</a>
                 </form>
             </div>
              

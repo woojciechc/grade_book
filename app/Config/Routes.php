@@ -32,7 +32,7 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 // $routes->get('/', 'Home::index');
 
-$routes->get('/', 'UserManagementController::index');
+$routes->get('/', 'Home::index');
 $routes->post('save', 'UserManagementController::save');
 $routes->get('register', 'UserManagementController::register');
 $routes->get('login', 'UserManagementController::login');
@@ -44,6 +44,8 @@ $routes->get('dashboard', 'UserManagementController::dashboard');
 $routes->get('student/subjects', 'StudentController::subjects');
 
 $routes->get('grades/grades', 'GradesController::grades');
+
+$routes->get('admin/dashboard', 'AdminController::dashboard');
 
 
 
