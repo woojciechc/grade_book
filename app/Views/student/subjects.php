@@ -28,8 +28,8 @@
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($subjects as $item): ?>
-
+                        foreach ($subjects as $item):
+                                ?>
 
 
                             <tr>
@@ -43,7 +43,10 @@
                                     <?= esc($item['firstName']) . " " . esc($item['lastName']) ?>
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-info">Zobacz oceny</button>
+                                    <form action="/grades/grades" method="get">
+                                        <button type="submit" name="subjectId" value="<?= esc($item['id']) ?>"
+                                            class="btn btn-info">Zobacz oceny</button>
+                                    </form>
                                 </td>
                             </tr>
 

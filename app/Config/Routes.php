@@ -43,6 +43,8 @@ $routes->get('dashboard', 'UserManagementController::dashboard');
 
 $routes->get('student/subjects', 'StudentController::subjects');
 
+$routes->get('grades/grades', 'GradesController::grades');
+
 
 
 /*

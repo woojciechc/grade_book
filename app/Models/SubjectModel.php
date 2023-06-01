@@ -11,7 +11,16 @@ class SubjectModel extends Model
 
     public function getSubjectList()
     {
-        return $this->join('user', 'subjects.teacher_id = user.id')->findAll();
+        return $this->select('subjects.id as id, user.id as userId, subjects.name, user.firstName, user.lastName')
+        ->join('user', 'subjects.teacher_id = user.id')
+        ->findAll();
+    }
+
+    public function getSubjectName($subjectId)
+    {
+        return $this->select('subjects.name')
+        ->where('id', $subjectId)
+        ->first();
     }
 }
 ?>
