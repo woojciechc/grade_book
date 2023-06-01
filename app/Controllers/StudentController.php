@@ -9,6 +9,7 @@ class StudentController extends Controller {
         if($session->get('roleId') == 3){
             $model = new SubjectModel();
             $data['subjects'] = $model->getSubjectList();
+            $data['title'] = 'List przedmiotów';
             return view('student/subjects', $data);
         }
         else{

@@ -6,7 +6,6 @@ use App\Models\UserModel;
 class UserManagementController extends Controller {
     public function index()
     {
-        //include helper form
         helper(['form']);
         $data = [];
         return view('registration', $data);
@@ -20,9 +19,8 @@ class UserManagementController extends Controller {
 
     public function save()
     {
-        //include helper form
         helper(['form']);
-        //set rules validation form
+
         $rules = [
             'email'         => 'required|min_length[6]|max_length[50]|valid_email|is_unique[user.email]',
             'firstName'     => 'required|min_length[3]|max_length[20]',
@@ -77,11 +75,11 @@ class UserManagementController extends Controller {
                 $session->set($ses_data);
                 return redirect()->to('student/subjects');
             }else{
-                $session->setFlashdata('msg', 'Wrong Password');
+                $session->setFlashdata('msg', 'Błędne hasło');
                 return redirect()->to('/login');
             }
         }else{
-            $session->setFlashdata('msg', 'Email not Found');
+            $session->setFlashdata('msg', 'Nie znaleziono danych logowania');
             return redirect()->to('/login');
         }
     }

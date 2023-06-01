@@ -17,7 +17,7 @@
         <div class="row justify-content-md-center">
 
             <div class="col-6">
-                <h1>Sign Up</h1>
+                <h1>Zarejestruj się</h1>
                 <?php if (isset($validation)): ?>
                     <div class="alert alert-danger">
                         <?= $validation->listErrors() ?>

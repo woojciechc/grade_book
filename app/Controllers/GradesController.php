@@ -11,7 +11,7 @@ class GradesController extends Controller {
         if($session->get('roleId') == 3){
             $model = new GradeModel();
             $subjectModel = new SubjectModel();
-            $data['subject'] = $subjectModel->getSubjectName($subjectId);
+            $data['title'] = "Oceny " . $subjectModel->getSubjectName($subjectId)['name'];
             $data['grades'] = $model->getGradesForUserFromSubject($session->get('user_id'), $subjectId);
             return view('student/grades', $data);
         }
