@@ -8,12 +8,20 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/student/subjects">Przedmioty</a>
+      <?php
+      $session = session();
+      $roleId = $session->get('roleId');
+      if($roleId==3){
+        echo "<a class=\"nav-link\" href=\"/student/subjects\">Przedmioty</a>";
+      }
+      if($roleId==1){
+        echo "<a class=\"nav-link\" href=\"/admin/dashboard\">Panel Admina</a>";
+      }
+        ?>
       </li>
     </ul>
     <div class="form-inline my-2 my-lg-0 m-3">
       <?php
-      $session = session();
       echo $session->get('user_email')
         ?>
         <a class="m-3" href="/logout">Wyloguj</a>
