@@ -22,5 +22,12 @@ class SubjectModel extends Model
         ->where('id', $subjectId)
         ->first();
     }
+
+    public function getSubjectIdForTeacher($teacherId)
+    {
+        return $this->select('subjects.id')
+        ->where('teacher_id', $teacherId)
+        ->first();
+    }
 }
 ?>

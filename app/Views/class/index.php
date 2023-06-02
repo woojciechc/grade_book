@@ -26,8 +26,8 @@
                                 <?= esc($item['lastName']) . ' ' . esc($item['firstName'])?>
                             </td>
                             <td>
-                                <form action="student/grades" method="get">
-                                    <button type="submit" name="classId" value="<?= esc($item['id']) ?>"
+                                <form action="/teacher/gradesForStudents" method="get">
+                                    <button type="submit" name="studentId" value="<?= esc($item['id']) ?>"
                                         class="btn btn-info">Zobacz oceny</button>
                                 </form>
                             </td>

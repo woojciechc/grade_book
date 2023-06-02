@@ -20,5 +20,12 @@ class UserModel extends Model
         ->where('students_classes.class_id', $classId)
         ->findAll();
     }
+
+    public function getUserData($userId) 
+    {
+        return $this->select('lastName, firstName')
+        ->where('id', $userId)
+        ->first();
+    }
 }
 ?>

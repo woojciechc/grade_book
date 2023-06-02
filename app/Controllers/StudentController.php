@@ -17,4 +17,18 @@ class StudentController extends Controller {
         }
 
     }
+
+    public function grades() {
+        $session = session();
+        if($session->get('roleId') == 3 || $session->get('roleId') == 2){
+            $model = new SubjectModel();
+            $data['subjects'] = $model->getSubjectList();
+            $data['title'] = 'List przedmiotów';
+            return view('student/subjects', $data);
+        }
+        else{
+            return view('errors/html/error_403');
+        }
+
+    }
 }

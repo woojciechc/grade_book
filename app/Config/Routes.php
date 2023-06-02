@@ -44,10 +44,13 @@ $routes->get('dashboard', 'UserManagementController::dashboard');
 $routes->get('student/subjects', 'StudentController::subjects');
 
 $routes->get('grades/grades', 'GradesController::grades');
+$routes->post('grades/addGrade', 'GradesController::addGrade');
+$routes->post('grades/changeGrade', 'GradesController::changeGrade');
 
 $routes->get('admin/dashboard', 'AdminController::dashboard');
 
 $routes->get('teacher/classes', 'TeacherController::classes');
+$routes->get('teacher/gradesForStudents', 'TeacherController::gradesForStudents');
 
 $routes->get('class/index', 'ClassController::index');
 
