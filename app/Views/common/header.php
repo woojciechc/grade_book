@@ -14,6 +14,9 @@
       if($roleId==3){
         echo "<a class=\"nav-link\" href=\"/student/subjects\">Przedmioty</a>";
       }
+      if($roleId==2){
+        echo "<a class=\"nav-link\" href=\"/teacher/classes\">Moje klasy</a>";
+      }
       if($roleId==1){
         echo "<a class=\"nav-link\" href=\"/admin/dashboard\">Panel Admina</a>";
       }

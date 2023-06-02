@@ -47,6 +47,10 @@ $routes->get('grades/grades', 'GradesController::grades');
 
 $routes->get('admin/dashboard', 'AdminController::dashboard');
 
+$routes->get('teacher/classes', 'TeacherController::classes');
+
+$routes->get('class/index', 'ClassController::index');
+
 
 
 /*

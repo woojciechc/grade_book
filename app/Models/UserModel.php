@@ -12,5 +12,13 @@ class UserModel extends Model
     {
         return $this->findAll();
     }
+
+    public function getStudentsForClass($classId) 
+    {
+        return $this->select('user.id as id, lastName, firstName')
+        ->join('students_classes', 'students_classes.student_id = user.id')
+        ->where('students_classes.class_id', $classId)
+        ->findAll();
+    }
 }
 ?>
