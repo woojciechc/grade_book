@@ -10,12 +10,10 @@
             <form class="col-12 m-3" action="/grades/addGrade" method="post">
                 <div class="row">
                     <div class="col-sm-2">
-                    <input type="number" placeholder="Ocena" name="grade" class="form-control" max=6 min=1 id="InputForDescription"
-                            value="<?= set_value('description') ?>">
+                        <input type="number" placeholder="Ocena" name="grade" class="form-control" max=6 min=1 id="InputForDescription" value="<?= set_value('description') ?>">
                     </div>
                     <div class="col-sm-4">
-                        <input type="text" placeholder="Komentarz" name="description" class="form-control" id="InputForDescription"
-                            value="<?= set_value('description') ?>">
+                        <input type="text" placeholder="Komentarz" name="description" class="form-control" id="InputForDescription" value="<?= set_value('description') ?>">
                     </div>
                     <div class="col-sm-2">
                         <button type="submit" name="studentId" value="<?= esc($studentId) ?>" class="btn btn-success">Dodaj ocenę</button>
@@ -48,8 +46,11 @@
                                     <?= esc($item['description']) ?>
                                 </td>
                                 <td>
-                                    <form action="/teacher/changeGrade" method="get">
-                                        <button type="submit" name="gradeId" value="<?= esc($item['id']) ?>" class="btn btn-info">Zmień ocenę</button>
+                                    <form action="/grades/removeGrade" method="post">
+                                        <div>
+                                            <input type="hidden" name="studentId" class="form-control" value="<?= esc($studentId) ?>">
+                                        </div>
+                                        <button type="submit" name="gradeId" value="<?= esc($item['id']) ?>" class="btn btn-danger">Usuń ocenę</button>
                                     </form>
                                 </td>
                             </tr>

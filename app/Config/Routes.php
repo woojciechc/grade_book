@@ -45,7 +45,7 @@ $routes->get('student/subjects', 'StudentController::subjects');
 
 $routes->get('grades/grades', 'GradesController::grades');
 $routes->post('grades/addGrade', 'GradesController::addGrade');
-$routes->post('grades/changeGrade', 'GradesController::changeGrade');
+$routes->post('grades/removeGrade', 'GradesController::removeGrade');
 
 $routes->get('admin/dashboard', 'AdminController::dashboard');
 

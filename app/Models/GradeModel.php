@@ -14,6 +14,10 @@ class GradeModel extends Model
         $this->insert($data);
     }
 
+    public function removeGrade($id) {
+        $this->delete($id);
+    }
+
     public function getGradesForUserFromSubject($userId, $subjectId)
     {
         return $this->select(

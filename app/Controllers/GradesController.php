@@ -42,7 +42,20 @@ class GradesController extends Controller
         }
     }
 
-    public function changeGrade()
+    public function removeGrade()
     {
+        $session = session();
+        if ($session->get('roleId') == 2) {
+            $subjectModel = new SubjectModel();
+            $data['student_id'] = $this->request->getVar('studentId');
+            $id= $this->request->getVar('gradeId');
+
+            $model = new GradeModel();
+            $model->removeGrade($id);
+
+            return redirect()->to('/teacher/gradesForStudents?studentId=' . $data['student_id']);
+        } else {
+            return view('errors/html/error_403');
+        }
     }
 }
