@@ -50,6 +50,8 @@ $routes->post('grades/removeGrade', 'GradesController::removeGrade');
 $routes->get('admin/dashboard', 'AdminController::dashboard');
 $routes->get('admin/removeUser', 'AdminController::removeUser');
 $routes->get('admin/changePassword', 'AdminController::changePassword');
+$routes->get('admin/changeUserData', 'AdminController::changeUserData');
+$routes->post('admin/postChangeUserData', 'AdminController::postChangeUserData');
 $routes->post('admin/postChangePassword', 'AdminController::postChangePassword');
 
 $routes->get('teacher/classes', 'TeacherController::classes');

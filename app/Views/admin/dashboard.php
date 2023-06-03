@@ -11,6 +11,7 @@
                         <th scope="col">email</th>
                         <th scope="col">Imie</th>
                         <th scope="col">Nazwisko</th>
+                        <th scope="col">Rola</th>
                         <th scope="col">Akcje</th>
                     </tr>
                 </thead>
@@ -32,6 +33,9 @@
                             </td>
                             <td>
                                 <?= esc($item['lastName']) ?>
+                            </td>
+                            <td>
+                                <?= esc($item['role_name']) ?>
                             </td>
                             <td>
                                 <div class="row">

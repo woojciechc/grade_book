@@ -10,7 +10,8 @@ class UserModel extends Model
 
     public function getUserList()
     {
-        return $this->findAll();
+        return $this->select('user.id, email, lastName, firstName, role_id, roles.role_name as role_name')
+        ->join('roles', 'roles.id = user.role_id')->findAll();
     }
 
     public function getStudentsForClass($classId) 
@@ -23,8 +24,9 @@ class UserModel extends Model
 
     public function getUserData($userId) 
     {
-        return $this->select('id, lastName, firstName')
-        ->where('id', $userId)
+        return $this->select('user.id, email, lastName, firstName, role_id, roles.role_name as role_name')
+        ->join('roles', 'roles.id = user.role_id')
+        ->where('user.id', $userId)
         ->first();
     }
 
@@ -34,6 +36,15 @@ class UserModel extends Model
 
     public function changePassword($userId, $password) {
         $this->set('password', $password)
+        ->where('id', $userId)
+        ->update();
+    }
+
+    public function changeUserData($firstName, $lastName, $email, $roleId, $userId) {
+        $this->set('firstName', $firstName)
+        ->set('lastName', $lastName)
+        ->set('email', $email)
+        ->set('role_id', $roleId)
         ->where('id', $userId)
         ->update();
     }
