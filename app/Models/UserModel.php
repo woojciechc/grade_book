@@ -23,7 +23,7 @@ class UserModel extends Model
 
     public function getUserData($userId) 
     {
-        return $this->select('lastName, firstName')
+        return $this->select('id, lastName, firstName')
         ->where('id', $userId)
         ->first();
     }
@@ -31,5 +31,12 @@ class UserModel extends Model
     public function removeUser($id) {
         $this->delete($id);
     }
+
+    public function changePassword($userId, $password) {
+        $this->set('password', $password)
+        ->where('id', $userId)
+        ->update();
+    }
+    
 }
 ?>

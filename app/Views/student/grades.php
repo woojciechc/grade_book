@@ -8,7 +8,7 @@
                 echo "Brak ocen";
             } ?>
             <?php foreach ($grades as $item): ?>
-                <button data-toggle="tooltip" data-placement="bottom" title="<?php echo $item['description'] ?>"
+                <button data-toggle="tooltip" data-placement="bottom" title="<?php echo $item['description'] . ' - ' .  $item['created_at'] ?>"
                     type="button" class="btn btn-<?php echo $item['color'] ?>">
                     <?php echo $item['grade_value'] ?>
                 </button>

@@ -24,7 +24,8 @@ class GradeModel extends Model
             'grades.id,
             grade_values.grade_value,
             grade_values.color,
-            grades.description'
+            grades.description,
+            grades.created_at'
         )
             ->join('grade_values', 'grades.value_id = grade_values.id')
             ->where('subject_id', $subjectId)

@@ -49,6 +49,8 @@ $routes->post('grades/removeGrade', 'GradesController::removeGrade');
 
 $routes->get('admin/dashboard', 'AdminController::dashboard');
 $routes->get('admin/removeUser', 'AdminController::removeUser');
+$routes->get('admin/changePassword', 'AdminController::changePassword');
+$routes->post('admin/postChangePassword', 'AdminController::postChangePassword');
 
 $routes->get('teacher/classes', 'TeacherController::classes');
 $routes->get('teacher/gradesForStudents', 'TeacherController::gradesForStudents');
