@@ -17,4 +17,18 @@ class AdminController extends Controller {
         }
 
     }
+
+    public function removeUser()
+    {
+        $session = session();
+        if ($session->get('roleId') == 1) {
+            $model = new UserModel();
+
+            $model->removeUser($this->request->getVar('userId'));
+
+            return redirect()->to('/admin/dashboard');
+        } else {
+            return view('errors/html/error_403');
+        }
+    }
 }

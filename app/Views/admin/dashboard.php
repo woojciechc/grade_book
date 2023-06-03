@@ -35,19 +35,19 @@
                             </td>
                             <td>
                                 <div class="row">
-                                    <div class="col-sm-2">
+                                    <div class="col-sm-4">
                                         <form action="/admin/changePassword" method="get">
-                                            <button type="submit" name="userId" value="<?= esc($item['id']) ?>" class="btn btn-info">Zmień hasło</button>
+                                        <button type="submit" name="userId" value="<?= esc($item['id']) ?>" class="btn btn-info"><i class="fa fa-edit"> Zmień hasło</i></button>
                                         </form>
                                     </div>
-                                    <div class="col-sm-2">
-                                        <form action="/admin/changePassword" method="get">
-                                            <button type="submit" name="userId" value="<?= esc($item['id']) ?>" class="btn btn-primary">Zmień dane</button>
+                                    <div class="col-sm-4">
+                                        <form action="/admin/changeUserData" method="get">
+                                            <button type="submit" name="userId" value="<?= esc($item['id']) ?>" class="btn btn-primary"><i class="fa fa-user-secret"> Zmień dane</i></button>
                                         </form>
                                     </div>
-                                    <div class="col-sm-2">
-                                        <form action="/admin/changePassword" method="get">
-                                            <button type="submit" name="userId" value="<?= esc($item['id']) ?>" class="btn btn-danger">Usuń użytkownika</button>
+                                    <div class="col-sm-3">
+                                        <form action="/admin/removeUser" method="get">
+                                            <button type="submit" name="userId" value="<?= esc($item['id']) ?>" class="btn btn-danger"><i class="fa fa-trash"> Usuń</i></button>
                                         </form>
                                     </div>
                                 </div>

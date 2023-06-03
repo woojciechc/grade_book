@@ -27,5 +27,9 @@ class UserModel extends Model
         ->where('id', $userId)
         ->first();
     }
+
+    public function removeUser($id) {
+        $this->delete($id);
+    }
 }
 ?>
