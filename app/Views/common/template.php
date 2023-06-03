@@ -16,9 +16,11 @@
 </head>
 
 <body>
-    <?= $this->include('common/header') ?>
-    <?= $this->renderSection('content') ?>
-    <?= $this->include('common/footer') ?>
+    <div class="bg">
+        <?= $this->include('common/header') ?>
+        <?= $this->renderSection('content') ?>
+        <?= $this->include('common/footer') ?>
+    </div>
 </body>
 <!-- Popper.js first, then Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
@@ -29,3 +31,20 @@
     crossorigin="anonymous"></script>
 
 </html>
+
+<style>
+    body,
+    html {
+        height: 100%;
+    }
+
+    .bg {
+        background-image: url("https://images.pexels.com/photos/4969107/pexels-photo-4969107.jpeg");
+
+        height: 100%;
+
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
