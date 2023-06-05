@@ -1,18 +1,22 @@
-<?php namespace App\Controllers;
- 
+<?php
+namespace App\Controllers;
+
+use App\Models\ClassModel;
+use App\Models\StudentClassModel;
 use App\Models\UserModel;
 use CodeIgniter\Controller;
- 
-class AdminController extends Controller {
-    public function dashboard() {
+
+class AdminController extends Controller
+{
+    public function dashboard()
+    {
         $session = session();
-        if($session->get('roleId') == 1){
+        if ($session->get('roleId') == 1) {
             $model = new UserModel();
             $data['title'] = "Admin - Uzytkownicy ";
             $data['users'] = $model->getUserList();
             return view('admin/dashboard', $data);
-        }
-        else{
+        } else {
             return view('errors/html/error_403');
         }
 
@@ -98,4 +102,62 @@ class AdminController extends Controller {
             return view('errors/html/error_403');
         }
     }
+
+    public function classes()
+    {
+        $session = session();
+        if ($session->get('roleId') == 1) {
+            $classModel = new ClassModel();
+            $data['title'] = "Lista klas";
+            $data['classes'] = $classModel->getClassList();
+            return view('admin/classes', $data);
+        } else {
+            return view('errors/html/error_403');
+        }
+
+    }
+
+    public function class ()
+    {
+        helper(['form']);
+        $session = session();
+        $classId = $this->request->getVar('classId');
+        if ($session->get('roleId') == 1) {
+            $model = new UserModel();
+            $classModel = new ClassModel();
+            $data['studentsToAdd'] = $model->getStudentsNotInClass($classId);
+            $data['title'] = "Klasa " . $classModel->getClassNameById($classId)['name'];
+            $data['classes'] = $model->getStudentsForClass($classId);
+            $data['classId'] = $classId;
+            return view('admin/class', $data);
+        } else {
+            return view('errors/html/error_403');
+        }
+
+    }
+
+    public function addUserToClass()
+    {
+
+        $model = new StudentClassModel();
+        $data = [
+            'student_id' => $this->request->getVar('studentId'),
+            'class_id' => $this->request->getVar('classId'),
+        ];
+        $model->addUserToClass($data);
+
+        return redirect()->to('/admin/class?classId=' . $this->request->getVar('classId'));
+    }
+
+    public function removeStudent()
+    {
+
+        $model = new StudentClassModel();
+        $studentId = $this->request->getVar('entryId');
+
+        $model->removeUserFromClass($studentId);
+        return redirect()->to('/admin/class?classId=' . $this->request->getVar('classId'));
+
+    }
+
 }

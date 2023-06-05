@@ -53,6 +53,10 @@ $routes->get('admin/changePassword', 'AdminController::changePassword');
 $routes->get('admin/changeUserData', 'AdminController::changeUserData');
 $routes->post('admin/postChangeUserData', 'AdminController::postChangeUserData');
 $routes->post('admin/postChangePassword', 'AdminController::postChangePassword');
+$routes->get('admin/classes', 'AdminController::classes');
+$routes->get('admin/class', 'AdminController::class');
+$routes->post('admin/addUserToClass', 'AdminController::addUserToClass');
+$routes->get('admin/removeStudent', 'AdminController::removeStudent');
 
 $routes->get('teacher/classes', 'TeacherController::classes');
 $routes->get('teacher/gradesForStudents', 'TeacherController::gradesForStudents');

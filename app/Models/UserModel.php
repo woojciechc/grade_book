@@ -16,7 +16,7 @@ class UserModel extends Model
 
     public function getStudentsForClass($classId) 
     {
-        return $this->select('user.id as id, lastName, firstName')
+        return $this->select('students_classes.id as entryId, user.id as id, lastName, firstName')
         ->join('students_classes', 'students_classes.student_id = user.id')
         ->where('students_classes.class_id', $classId)
         ->findAll();
@@ -47,6 +47,15 @@ class UserModel extends Model
         ->set('role_id', $roleId)
         ->where('id', $userId)
         ->update();
+    }
+
+    public function getStudentsNotInClass($classId) 
+    {
+        return $this->select('user.id as id, lastName, firstName')
+        ->join('students_classes', 'students_classes.student_id = user.id')
+        ->where('students_classes.class_id !=', $classId)
+        ->where('user.role_id', '3')
+        ->findAll();
     }
     
 }

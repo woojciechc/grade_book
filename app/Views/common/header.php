@@ -18,7 +18,10 @@
         echo "<a class=\"nav-link\" href=\"/teacher/classes\">Moje klasy</a>";
       }
       if($roleId==1){
-        echo "<a class=\"nav-link\" href=\"/admin/dashboard\">Panel Admina</a>";
+        echo "<a class=\"nav-link\" href=\"/admin/dashboard\">Użytkownicy</a>";
+        echo "</li>";
+        echo "<li class=\"nav-item active\">";
+        echo "<a class=\"nav-link\" href=\"/admin/classes\">Klasy</a>";
       }
         ?>
       </li>
